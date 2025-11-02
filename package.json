@@ -1,0 +1,26 @@
+{
+  "name": "solution-configuration-management-service",
+  "version": "1.0.0",
+  "description": "solution-configuration-management-service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoSalas27/solution-configuration-management-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoSalas27/solution-configuration-management-service/issues"
+  },
+  "homepage": "https://github.com/DiegoSalas27/solution-configuration-management-service#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint-config-standard-with-typescript": "^40.0.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.5.3"
+  }
+}

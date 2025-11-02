@@ -1,1 +1,1 @@
-"# solution-configuration-management-service" 
+# Configuration Management Service
