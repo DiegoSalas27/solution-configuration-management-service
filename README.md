@@ -45,8 +45,6 @@ OPENAI_API_KEY          # API Key for OpenAI
 ANTHROPIC_API_KEY       # API Key for Anthropic
 ```
 
-## Architecture
-
 ## Testing
 
 1. Clone this project.
@@ -70,7 +68,7 @@ cd interview-simulation-service
 pip install -r requirements.txt
 ```
 
-3. Running services:
+4. Running services:
 
 ### state management service
 ```
@@ -84,6 +82,57 @@ npm run start:dev
 cd interview-simulation-service
 python main.py
 ```
+
+5. Test with postman
+
+### state management service
+method: `POST`
+path: `http://127.0.0.1:3001/api/llms/check-health`
+body:
+```
+{
+    "company": "openai",
+    "model": "gpt-4o"
+}
+```
+or
+```
+{
+    "company": "anthropic",
+    "model": "claude-sonnet-4-5"
+}
+```
+
+### To test a model being unreachable:
+1. Uncomment the following lines of code: https://github.com/DiegoSalas27/solution-configuration-management-service/blob/main/state-management-service/src/service/impl/llm-service-impl.ts#L18-L20
+2. Build the project again: `npm run build`
+3. Run the server: `npm run start:dev`
+
+By, uncommenting the code as mentioned above, a `FallBackEvent saved` will appear in the logs when the health check monitor runs:
+```
+FallBackEvent saved:  {
+  "create_date": "2025-11-03 01:10:25.352000",
+  "llm": "4de44421-e8da-4d67-88ff-e3f8e42bab80", # <- copy this id and use it in the `simulation_configuration` payload for the `initiate_interview` endpoint.
+  ...
+```
+
+### interview simulation service
+method: `POST`
+path: `http://127.0.0.1:3000/initiate_interview`
+body:
+```
+{
+    "simulation_configuration": {
+        "id": "4de44421-e8da-4d67-88ff-e3f8e42bab80", # <- If you need to test the secondary model being used, paste here the primary model id which you should have obtained from the previous step.
+        "primary_model": "claude",
+        "secondary_model": "openai",
+        "expected_max_latency": 200
+    },
+    "prompt": "What is your name?"
+}
+```
+
+Once called, the system will try to call the primary model it the `simulation_configuration.id` is not found in the `fall_back_event` table; otherwise the secondary model will be called.
 
 ## Repository structure
 The solution is structured as follows:
