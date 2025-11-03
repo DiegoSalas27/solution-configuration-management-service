@@ -1,3 +1,4 @@
+import { sqliteDbConnectionManager } from '@infrastructure/db/sqlite-db-connection-manager'
 import setupMiddlewares from '@main/config/middlewares'
 import setupRoutes from '@main/config/routes'
 import 'dotenv/config'
@@ -12,6 +13,9 @@ import type http from 'http'
  */
 export const bootstrap = async (): Promise<Express> => {
   const app = express()
+
+  await sqliteDbConnectionManager.initializeLocalDatabase('app.sqlite')
+
   setupMiddlewares(app)
   setupRoutes(app)
   return app

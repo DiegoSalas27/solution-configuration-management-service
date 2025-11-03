@@ -4,15 +4,18 @@ import { mock, MockProxy } from 'jest-mock-extended'
 import { LLMServiceImpl } from './llm-service-impl'
 import { Company, Model } from '@ts/enums'
 import { LLM } from '@domain/entities/llm'
+import { LLMRepository } from '@service/contracts'
 
 describe('LLMServiceImpl tests', () => {
   let sut: LLMService
   let aiProvider: MockProxy<ModelProvider>
+  let llmRepository: MockProxy<LLMRepository>
   const llm = new LLM(Company.OPENAI, Model.GPTG4O)
 
   beforeAll(() => {
     aiProvider = mock()
-    sut = new LLMServiceImpl(aiProvider)
+    llmRepository = mock()
+    sut = new LLMServiceImpl(aiProvider, llmRepository)
   })
 
   beforeEach(() => {
