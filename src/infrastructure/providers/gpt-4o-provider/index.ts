@@ -1,6 +1,7 @@
 import OpenAI from 'openai'
 
 import { ModelProvider } from '@service/contracts/model-provider'
+import { Model } from '@ts/enums'
 
 export class GPT4oProvider implements ModelProvider {
   private readonly client: OpenAI
@@ -14,9 +15,9 @@ export class GPT4oProvider implements ModelProvider {
     console.log('[GPT4oProvider] available models: ', response.data)
   }
 
-  async ping(): Promise<void> {
+  async ping(model: Model): Promise<void> {
     const response = await this.client.chat.completions.create({
-      model: 'gpt-4o',
+      model,
       messages: [{ role: 'user', content: 'ping' }],
       max_tokens: 1
     })

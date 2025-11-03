@@ -1,11 +1,11 @@
-import { type Company } from 'ts/enums'
+import { Model } from 'ts/enums'
 
 export class SimulationConfiguration {
   private readonly id: string
 
   constructor(
-    private readonly primaryModel: Company,
-    private readonly secondaryModel: Company,
+    private readonly primaryModel: Model,
+    private readonly secondaryModel: Model,
     private readonly expectedMaxLatency: number
   ) {}
 }

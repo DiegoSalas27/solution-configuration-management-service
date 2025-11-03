@@ -14,7 +14,8 @@
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
-        "@typescript-eslint/no-extraneous-class": "off"
+        "@typescript-eslint/no-extraneous-class": "off",
+        "@typescript-eslint/return-await": "off"
       }
     }
   ]

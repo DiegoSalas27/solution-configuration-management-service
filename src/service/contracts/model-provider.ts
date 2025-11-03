@@ -1,3 +1,5 @@
+import { Model } from '@ts/enums'
+
 /**
  * Provides a model.
  */
@@ -10,5 +12,5 @@ export interface ModelProvider {
   /**
    * Submits a dummy cheap prompt to an LLM to ensure a response is given back.
    */
-  ping: () => Promise<void>
+  ping: (model: Model) => Promise<void>
 }

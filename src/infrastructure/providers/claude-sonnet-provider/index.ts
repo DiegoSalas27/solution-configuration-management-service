@@ -1,6 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk'
 
 import { ModelProvider } from '@service/contracts/model-provider'
+import { Model } from '@ts/enums'
 
 export class ClaudeSonnetProvider implements ModelProvider {
   private readonly client: Anthropic
@@ -14,9 +15,9 @@ export class ClaudeSonnetProvider implements ModelProvider {
     console.log('[ClaudeSonnetProvider] available models: ', response.data)
   }
 
-  async ping(): Promise<void> {
+  async ping(model: Model): Promise<void> {
     const response = await this.client.messages.create({
-      model: 'claude-sonnet-4-5',
+      model,
       messages: [{ role: 'user', content: 'ping ' }],
       max_tokens: 1
     })
