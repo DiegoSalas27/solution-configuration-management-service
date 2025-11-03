@@ -14,7 +14,7 @@ class AiFactory:
     @staticmethod
     def create(provider_name: Model) -> AIProvider:
         if provider_name == Model.OPENAI.value:
-            api_key = get_env_var("OPEN_API_KEY")
+            api_key = get_env_var("OPENAI_API_KEY")
             return OpenAIProvider(api_key=api_key)
         
         if provider_name == Model.CLAUDE.value:

@@ -56,7 +56,7 @@ describe('ModelFactory tests', () => {
     test('should create a GPT4oProvider instance when company is OPENAI', () => {
       // Arrange
       const mockApiKey = 'mock-openai-key'
-      process.env.OPEN_API_KEY = mockApiKey
+      process.env.OPENAI_API_KEY = mockApiKey
 
       // Act
       ModelFactory.create(Company.OPENAI)
@@ -100,14 +100,14 @@ describe('ModelFactory tests', () => {
 
     test('should throw "Something went wrong" if the API key is missing for OPENAI', () => {
       // Arrange
-      delete process.env.OPEN_API_KEY
+      delete process.env.OPENAI_API_KEY
 
       // Act & Assert
       expect(() => {
         ModelFactory.create(Company.OPENAI)
       }).toThrow('Something went wrong')
 
-      expect(getEnvVarSpy).toHaveBeenCalledWith('OPEN_API_KEY')
+      expect(getEnvVarSpy).toHaveBeenCalledWith('OPENAI_API_KEY')
     })
 
     test('should throw "Something went wrong" if the API key is an empty string for ANTHROPIC', () => {

@@ -5,7 +5,7 @@ import { Company } from '@ts/enums'
 export class ModelFactory {
   static create(companyName: Company): ModelProvider {
     if (companyName === Company.OPENAI) {
-      const apiKey = this.getEnvVar('OPEN_API_KEY')
+      const apiKey = this.getEnvVar('OPENAI_API_KEY')
       return new GPT4oProvider(apiKey)
     }
 
