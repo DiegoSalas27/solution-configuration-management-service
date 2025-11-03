@@ -1,5 +1,5 @@
 import { LLMService } from '@domain/contracts/llm-service'
-import { ModelProvider } from '@service/contracts/ai-provider'
+import { ModelProvider } from '@service/contracts/model-provider'
 import { mock, MockProxy } from 'jest-mock-extended'
 import { LLMServiceImpl } from './llm-service-impl'
 import { Company } from '@ts/enums'

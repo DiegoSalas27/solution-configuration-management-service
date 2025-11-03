@@ -1,4 +1,4 @@
-import { ModelProvider } from '@service/contracts/ai-provider'
+import { ModelProvider } from '@service/contracts/model-provider'
 import { Company } from '@ts/enums'
 import { LLMService } from 'domain/contracts/llm-service'
 
