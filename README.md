@@ -86,9 +86,9 @@ python main.py
 5. Test with postman
 
 ### state management service
-method: `POST`
-path: `http://127.0.0.1:3001/api/llms/check-health`
-body:
+- method: `POST`
+- path: `http://127.0.0.1:3001/api/llms/check-health`
+- body:
 ```
 {
     "company": "openai",
@@ -117,9 +117,9 @@ FallBackEvent saved:  {
 ```
 
 ### interview simulation service
-method: `POST`
-path: `http://127.0.0.1:3000/initiate_interview`
-body:
+- method: `POST`
+- path: `http://127.0.0.1:3000/initiate_interview`
+- body:
 ```
 {
     "simulation_configuration": {
@@ -132,7 +132,7 @@ body:
 }
 ```
 
-Once called, the system will try to call the primary model it the `simulation_configuration.id` is not found in the `fall_back_event` table; otherwise, the secondary model will be called.
+Once called, the system will try to call the primary model if the `simulation_configuration.id` is not found in the `fall_back_event` table; otherwise, the secondary model will be called.
 
 ## Repository structure
 The solution is structured as follows:
