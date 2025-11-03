@@ -2,6 +2,7 @@ import { LLM } from '@domain/entities/llm'
 import { InternalServerError } from '@domain/errors'
 import { LLMRepository } from '@service/contracts'
 import { ModelProvider } from '@service/contracts/model-provider'
+import { Model } from '@ts/enums'
 import { LLMService } from 'domain/contracts/llm-service'
 
 export class LLMServiceImpl implements LLMService {

@@ -14,7 +14,7 @@ import type http from 'http'
 export const bootstrap = async (): Promise<Express> => {
   const app = express()
 
-  await sqliteDbConnectionManager.initializeLocalDatabase('app.sqlite')
+  await sqliteDbConnectionManager.initializeLocalDatabase('../app.sqlite')
 
   setupMiddlewares(app)
   setupRoutes(app)

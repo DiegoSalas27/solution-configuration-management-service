@@ -4,9 +4,9 @@
   "description": "solution-configuration-management-service",
   "main": "index.js",
   "scripts": {
-    "start:dev": "node --env-file=.env.test dist/main/server.js",
+    "start:dev": "node --env-file=../.env dist/main/server.js",
     "build": "npm run clean  && tsc --sourceMap --p tsconfig.build.json && tsc-alias",
-    "test": "jest --passWithNoTests --no-cache --runInBand --env-file=.env.test",
+    "test": "jest --passWithNoTests --no-cache --runInBand --env-file=../.env",
     "test:unit": "npm test -- --watch -c jest-unit.config.js",
     "test:integration": "npm test -- --watch -c jest-integration.config.js",
     "test:staged": "npm test --findRelatedTests",

@@ -1,6 +1,12 @@
+# typescript
 node_modules
 dist
 .vscode
 .env.*
 coverage
 *.sqlite
+
+# python
+__pycache__
+.mypy_cache
+.env

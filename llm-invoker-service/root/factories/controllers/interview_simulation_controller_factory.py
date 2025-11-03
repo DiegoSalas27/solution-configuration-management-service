@@ -1,0 +1,6 @@
+from presentation.controllers.interview_simulation_corntroller import InterviewSimulationController
+from service.contracts.ai_provider import AIProvider
+from root.factories.services.interview_simulation_service_impl_factory import make_interview_simulation_service_impl
+
+def make_interview_simulation_controller(ai_provider: AIProvider) -> InterviewSimulationController:
+  return InterviewSimulationController(make_interview_simulation_service_impl(ai_provider))
