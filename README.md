@@ -108,7 +108,7 @@ or
 2. Build the project again: `npm run build`
 3. Run the server: `npm run start:dev`
 
-By, uncommenting the code as mentioned above, a `FallBackEvent saved` will appear in the logs when the health check monitor runs:
+By uncommenting the code as mentioned above, a `FallBackEvent saved` will appear in the logs when the health check monitor runs:
 ```
 FallBackEvent saved:  {
   "create_date": "2025-11-03 01:10:25.352000",
@@ -132,7 +132,7 @@ body:
 }
 ```
 
-Once called, the system will try to call the primary model it the `simulation_configuration.id` is not found in the `fall_back_event` table; otherwise the secondary model will be called.
+Once called, the system will try to call the primary model it the `simulation_configuration.id` is not found in the `fall_back_event` table; otherwise, the secondary model will be called.
 
 ## Repository structure
 The solution is structured as follows:
