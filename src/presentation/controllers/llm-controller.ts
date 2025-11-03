@@ -27,3 +27,10 @@ export class LLMController extends BaseController {
     return ResponseEntity.ok().body(httpResponse)
   }
 }
+
+export namespace LLMController {
+  /**
+   * Lists the handler methods available in {@link LLMController}
+   */
+  export type Handler = 'checkHealth'
+}

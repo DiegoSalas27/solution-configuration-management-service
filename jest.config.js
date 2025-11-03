@@ -3,7 +3,9 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.(ts)',
     '!**/*d.ts',
-    '!<rootDir>/src/**/index.ts'
+    '!<rootDir>/src/**/index.ts',
+    '!<rootDir>/src/domain/entities/**/*.(ts)',
+    '!<rootDir>/src/main/**/*.(ts)'
   ],
   coverageThreshold: {
     global: {

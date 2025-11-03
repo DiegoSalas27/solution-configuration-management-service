@@ -20,5 +20,5 @@
       "@ts/*": ["ts/*"]
     }
   },
-  "include": ["src", "src/main/helpers/graceful-shutdown/.ts"]
+  "include": ["src"]
 }
